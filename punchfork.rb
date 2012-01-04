@@ -6,8 +6,9 @@ class Punchfork
   base_uri 'http://api.punchfork.com'
   format :json
 
-  def initialize
+  def initialize(auth = {})
     @auth = { :key => ENV['PUNCHFORK_KEY'] }
+    @auth.merge!(auth)
     self.class.default_params @auth
   end
 
